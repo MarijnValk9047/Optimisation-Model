@@ -55,7 +55,7 @@ def write_tree(root: Path, out_file: Path) -> None:
 
 
 if __name__ == "__main__":
-    project_root = Path(__file__).resolve().parents[1]  # assumes tools/ is one level under root
+    project_root = Path(__file__).resolve().parents[1]  # assumes 99_tools/ is one level under root
     output_path = project_root / "project_tree.txt"
     write_tree(project_root, output_path)
     print(f"Wrote: {output_path}")

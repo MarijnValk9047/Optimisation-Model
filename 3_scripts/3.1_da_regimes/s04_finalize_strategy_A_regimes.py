@@ -329,6 +329,10 @@ def main() -> int:
     eval_df.to_parquet(out_eval, index=False)
     assignments_df.to_parquet(out_assign, index=False)
 
+    medoids_df.to_csv(regimes_dir / "strategy_A" / "A_medoids_shapes.csv", index=False, encoding="utf-8")
+    probs_df.to_csv(regimes_dir / "strategy_A" / "A_medoids_probabilities.csv", index=False, encoding="utf-8")
+    assignments_df.to_csv(regimes_dir / "strategy_A" / "A_assignments_all_splits.csv", index=False, encoding="utf-8")
+
     # Stress library: per class, pick top 1% worst distances within selected splits, cap 3
     stress_list = []
     for class_id, k in sorted({r["class_id"]: r["k"] for r in eval_rows}.items()):
